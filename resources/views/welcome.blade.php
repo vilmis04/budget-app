@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget App</title>
-</head>
-<body>
-    <div class="title">
-        My budget app
+@extends('layouts.layout')
+
+
+@section('content')
+    <div class="container center">
+        <div class="title">
+            My budget app
+        </div>
+        <button class="waves-effect waves-light btn z-depth-0">Test</button>
     </div>
-</body>
-</html>
+
+    <div class="container center">
+        <p>This page should contain a picture or a gif about the app and links to login or register</p>
+    </div>
+
+@endsection
