@@ -7,6 +7,8 @@
     <title>Budget App</title>
 </head>
 <body>
-    My budget app
+    <div class="title">
+        My budget app
+    </div>
 </body>
 </html>
