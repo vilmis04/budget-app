@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+
