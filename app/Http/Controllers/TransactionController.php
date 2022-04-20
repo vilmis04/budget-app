@@ -2,31 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\App;
 
 class TransactionController extends Controller
 {
     public function index() {
 
-        $transactions = DB::table('transactions')->get();
+        $transactions = Transaction::all();
         
         return view('transactions.index', [
             'transactions' => $transactions
         ]);
     }
 
+    public function create() {
+
+        return view('transactions.create');
+    }
+
     public function show($id) {
 
-        $transaction = DB::table('transactions')->find($id);
-        if (empty($transaction)) {
-            App::abort(404);
-            // return View::make('errors.404');
-        }
-        
+        $transaction = Transaction::findOrFail($id);
+          
         return view('transactions.show', [
             'transaction' => $transaction
         ]);
+    }
+
+    public function store() {
+
+        $transaction = new Transaction();
+
+        $transaction->date = request('date');
+        $transaction->description = request('description');
+        $transaction->category = request('category');
+        $transaction->type = request('type');
+        $transaction->amount = request('amount');
+
+        $transaction->save();
+
+        return redirect('/dashboard');
     }
 }

@@ -22,6 +22,10 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 
+
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+
+Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
 
