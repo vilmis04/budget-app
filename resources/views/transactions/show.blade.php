@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="container flow-text center">
-    Transaction number {{ $id }}
+    Transaction number {{ $transaction->id }}
+</div>
+<div class="container flow-text center">
+    {{ $transaction->type }} - {{ $transaction->amount }} - {{ $transaction->description }} - {{ $transaction->date }}
 </div>
 
 @endsection
