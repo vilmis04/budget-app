@@ -9,4 +9,10 @@
     {{ $transaction->type }} - {{ $transaction->amount }} - {{ $transaction->description }} - {{ $transaction->date }}
 </div>
 
+<form class="container center" action="/transactions/{{ $transaction->id }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="DELTE" class="btn">
+</form>
+
 @endsection
