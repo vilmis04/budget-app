@@ -19,16 +19,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+// dashboard
 
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
+// transactions
 
-Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
-Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
-Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
-Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
+Route::get('/transactions', [TransactionController::class, 'index']);
+Route::get('/transactions/create', [TransactionController::class, 'create']);
+Route::get('/transactions/{id}', [TransactionController::class, 'show']);
+Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit']);
 
-Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
-Route::put('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
-Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+Route::post('/transactions', [TransactionController::class, 'store']);
+Route::put('/transactions/{id}', [TransactionController::class, 'update']);
+Route::delete('/transactions/{id}', [TransactionController::class, 'destroy']);
+
+// plans
 
