@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -43,5 +44,37 @@ class TransactionController extends Controller
         $transaction->save();
 
         return redirect('/dashboard');
+    }
+
+    public function edit($id) {
+
+        $transaction = Transaction::findOrFail($id);
+        
+        return view('transactions.edit', [
+            'transaction' => $transaction
+        ]);
+
+    }
+
+    public function update ($id) {
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction->date = request('date');
+        $transaction->description = request('description');
+        $transaction->category = request('category');
+        $transaction->type = request('type');
+        $transaction->amount = request('amount');
+
+        $transaction->save();
+
+        return redirect('/dashboard');
+    }
+
+    public function destroy ($id) {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->delete();
+
+        return redirect('/dashboard');
+
     }
 }

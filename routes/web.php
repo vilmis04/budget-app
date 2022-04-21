@@ -26,6 +26,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
 Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
 
 Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::put('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 

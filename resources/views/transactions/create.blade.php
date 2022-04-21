@@ -7,7 +7,8 @@
 </div>
 
 <!-- <form class="container flow-text center" action="/transactions" method="POST"> -->
-<form class="container flow-text center" action="http://127.0.0.1:8000/transactions" method="POST">
+<form class="container flow-text center" action="/transactions" method="POST">
+<!-- <form class="container flow-text center" action="http://127.0.0.1:8000/transactions" method="POST"> -->
     @csrf
     <div class="row">
         <div class="container center">Transaction type</div>
